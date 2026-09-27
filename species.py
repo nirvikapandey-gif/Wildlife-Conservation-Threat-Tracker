@@ -1,67 +1,58 @@
-<<<<<<< HEAD
-# quick zoo inventory script
-animals = {
-    "Tiger": 12, 
-    "Rhino": 5, 
+land_animals={
+    "Tiger": 12,  
     "Elephant": 24,
+    "Rhino": 5,
     "Leopard": 4, 
     "Panda": 21, 
     "Crocodile": 17
 }
-
-def show_all():
-    print("\ncurrent inventory:")
-    for a in animals:
-        print(a, ":", animals[a])
-
-def update_stock():
-    name = input("\nAnimal to update: ")
-    
-    # just checking if it exists or adding it raw
-    new_val = int(input("Enter new count: "))
-    
-    animals[name] = new_val
-    print("updated!")
-    show_all()
-
-# let's run it
-show_all()
-update_stock()
-=======
-# Module 1: Handles animal population inventory
-
-# Initial data storage using a standard Python dictionary
-animal_database = {
-    "Bengal Tiger": 12,
-    "Indian Rhino": 5,
-    "Asian Elephant": 24
+aquatic_animals={
+    "Dolphin": 15,
+    "Shark": 8,
+    "Whale": 3,
+    "Octopus": 12,
+    "Sea Turtle": 9,
+    "Seahorse": 14
 }
+volant_animals={
+    "Eagle": 10,
+    "Parrot": 25,
+    "Bat": 30,
+    "Owl": 7,
+    "Hummingbird": 18,
+    "Falcon": 5 
+}
+def show_all():
+    print("\ncurrent inventory:-")
+    print("\n--- Land Animals ---")
+    for a in land_animals:
+        print(a, ":", land_animals[a])
+    print("\n--- Aquatic Animals ---")
+    for a in aquatic_animals:
+        print(a, ":", aquatic_animals[a])
+    print("\n--- Volant Animals ---")
+    for a in volant_animals:
+        print(a, ":", volant_animals[a])
 
-def view_species():
-    """Prints all tracked animals and their current numbers."""
-    print("\n--- Current Species Populations ---")
-    if not animal_database:
-        print("No species are currently tracked.")
-        return
-    for animal, count in animal_database.items():
-        print(f"🐾 {animal}: {count} individuals remaining")
+def positive_int (x):
+    a=input(x)
+    while not a.isdigit()  or int(a)<=0:
+        a= input("Enter a positive integer : ")
+    return int(a)
+def update():
+    print("\nWhich type of animal would you like to update?")
+    b=positive_int("\n 1. Land Animal, 2. Aquatic Animal, 3. Volant Animal:- ")
+    name=input("\nAnimal to update:- ")
+    value=positive_int("Enter new count:- ")
 
-def update_population():
-    """Adds a new species or changes the count of an existing one with input protection."""
-    print("\n--- Update/Add Species Record ---")
-    name = input("Enter species name: ").strip()
-    if not name:
-        print("❌ Error: Species name cannot be empty!")
+    if b==1:
+          land_animals[name]=value
+    elif b==2:
+            aquatic_animals[name]=value
+    elif b==3:
+            volant_animals[name]=value
+    else:
+        print("Invalid choice!")
         return
-        
-    try:
-        count = int(input(f"Enter current population count for {name}: "))
-        if count < 0:
-            print("❌ Error: Population count cannot be negative!")
-            return
-        # Store or update the value in the dictionary
-        animal_database[name] = count
-        print(f"✅ Successfully updated {name} population to {count}.")
-    except ValueError:
-        print("❌ Error: Please enter a valid whole number for the count!")
->>>>>>> 4a119142986d644b1463e494f066879e1d346490
+    print("Updated Animals!")
+    show_all()

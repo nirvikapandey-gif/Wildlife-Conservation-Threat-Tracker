@@ -1,0 +1,23 @@
+*********************************************
+ OFFICIAL SANCTUARY AUDIT AND SECURITY REPORT 
+*********************************************
+
+*** SPECIES INVENTORY ***
+- Tiger: 12 count
+- Elephant: 24 count
+- Rhino: 5 count
+- Leopard: 4 count
+- Panda: 21 count
+- Crocodile: 17 count
+- Dolphin: 15 count
+- Shark: 8 count
+- Whale: 3 count
+- Octopus: 12 count
+- Sea Turtle: 9 count
+- Seahorse: 14 count
+- Eagle: 10 count
+- Parrot: 25 count
+- Bat: 30 count
+- Owl: 7 count
+- Hummingbird: 18 count
+- Falcon: 5 count
