@@ -1,4 +1,7 @@
-# Wildlife Conservation & Threat Tracker
+<h1>
+<img width="50" alt="Image" src="https://github.com/user-attachments/assets/d82f3cb7-3054-4c7c-bb6e-ec7944028906" />
+Wildlife Conservation & Threat Tracker
+</h1>
 
 A modular, terminal-based Command Line Interface (CLI) application developed in Python to track endangered animal populations and active environmental threats across sanctuary sectors.
 
