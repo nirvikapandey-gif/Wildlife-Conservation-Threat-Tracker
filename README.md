@@ -30,53 +30,76 @@ The application is architected across separate logical files to maximize code cl
 *   **Analytics Aggregator (`dashboard.py`):** Pulls live cross-module data streams to calculate total animal counts, evaluate species diversity indexes, and flag high-risk coordinates needing immediate patrol.
 *   **Data Serialization Engine (`data_io.py`):** Formats internal runtime structures into a beautifully aligned ASCII audit text report for permanent file backups.
 
- USER INPUT LAYER             SYSTEM PROCESSING LAYER (CODE FILE & LOGIC)         TERMINAL DISPLAY LAYER
- ════════════════             ══════════════════════════════════════════         ══════════════════════
- 
-  [Type Option 1] ───► Runs:  dashboard.py ➔ display_dashboard() ───────────► ┌───────────────────────────┐
-                              • Fetches land/aquatic/volant dict data         │ 📊 SANCTUARY ANALYTICS    │
-                              • Sums total individual counts                  │ • Total Animals Logged    │
-                              • Filters active threats for 'CRITICAL'         │ • High-Risk Patrol Zones  │
-                                                                              └───────────────────────────┘
- 
-  [Type Option 2] ───► Runs:  species.py ➔ show_all() ──────────────────────► ┌───────────────────────────┐
-                              • Iterates through categorized dicts            │ 🌾 CATEGORIZED CENSUS     │
-                              │                                               │ • Land / Aquatic / Volant │
-                              ▼                                               └───────────────────────────┘
-                    Prompt:  "Would you like to modify/add a record? (Y/N)"
-                              │
-                              ├─► If 'N' ──► Loops back to Main Menu
-                              │
-                              └─► If 'Y' ──► Runs: species.update() ────────► ┌───────────────────────────┐
-                                             • Input validation (try/except)  │ ✅ Data Saved Successfully│
-                                             • Boundary verification (< 0)    │ • Re-prints updated list  │
-                                             • dict[name] = count             └───────────────────────────┘
- 
-  [Type Option 3] ───► Runs:  threats.py ➔ view_threats() ──────────────────► ┌───────────────────────────┐
-                              • Checks if active_threats list is empty        │ 🚨 RISK INCIDENT SHEET    │
-                              • Iterates and numbers logged hazard dicts      │ 1. Sector A [CRITICAL]    │
-                              │                                               └───────────────────────────┘
-                              ▼
-                    Prompt:  "Would you like to file a new threat? (Y/N)"
-                              │
-                              ├─► If 'N' ──► Loops back to Main Menu
-                              │
-                              └─► If 'Y' ──► Runs: threats.new_threat() ────► ┌───────────────────────────┐
-                                             • Sanitation (.strip() / .upper()│ 🚨 Threat Appended!       │
-                                             • list.append(new_alert)         │ • Automatically shows list│
-                                                                              └───────────────────────────┘
- 
-  [Type Option 4] ───► Runs:  data_io.py ➔ export_text_report() ────────────► ┌───────────────────────────┐
-                              • open("sanctuary_report.txt", "w")             │ 💾 File Backup Successful!│
-                              • Stream writes formatted text strings          │ • Creates permanent text  │
-                              • Executes file.close() boundary flush          │   document in workspace   │
-                                                                              └───────────────────────────┘
- 
-  [Type Option 5] ───► Runs:  main.py ➔ run_application() ──────────────────► ┌───────────────────────────┐
-                              • Automatically triggers data_io file export    │ 🔌 Saving backups...      │
-                              • Executes the 'break' routing utility          │ • System shutdown clean.  │
-                                                                              │   Goodbye!                │
-                                                                              └───────────────────────────┘
+## ⚙️ System Overview Diagram
+
+```text
+               🐾 WILDLIFE CONSERVATION CORE
+                             │
+                             ▼
+                      💻 MAIN SYSTEM MENU
+                             │
+      ┌──────────────┬───────┴───────┬──────────────┐
+      │              │               │              │
+      ▼              ▼               ▼              ▼
+ 📊 Dashboard   🌾 Species       🚨 Threats      💾 File I/O
+ (dashboard.py)  (species.py)    (threats.py)    (data_io.py)
+                     │               │              │
+                     ├─► Land        ├─► Alerts     └─► Exporter
+                     ├─► Aquatic     ├─► Hazards        (Generates
+                     └─► Volant      └─► Severity        report.txt)
+```
+
+---
+
+## 🏗️ Project Directory Structure
+
+```text
+WILDLIFE CONSERVATION CORE/
+│
+│── main.py                           # Main menu interface & application router
+│   ├── species.py                    # Handles land, aquatic, & volant inventories
+│   ├── threats.py                    # Incident risk logger & active danger tracker
+│   ├── dashboard.py                  # Analytical panel & high-risk zone visualizer
+│   └── data_io.py                    # Simple storage management file exporter
+│
+├── 📂 data/                          # Permanent Storage Target Output Folder
+│   └── sanctuary_report.txt          # Automatically generated text audit backup
+│
+├── 📄 statement.md                   # Formal structural scope definition document
+└── 📄 README.md                      # Technical installation & test instruction sheet
+
+```
+
+---
+
+## 📚 Core Software Engineering Concepts Used
+
+```text
+Python Implementation Blueprint
+│
+├── Modularity & Imports (Separation of concerns using multi-file linking)
+│
+├── Data Types & Storage
+│   ├── int           # Menu options validation, population counts
+│   ├── str           # Casing formatting, zone alerts data
+│   ├── dict          # Categorized inventories (land, aquatic, volant)
+│   └── list          # Dynamic chronological array holding active threats
+│
+├── Input / Output & Formatting
+│   ├── input()       # User selection data capture handles
+│   ├── print()       # Text UI grids drawing & title bars
+│   └── f-strings     # Live dictionary variables interpolation inside text
+│
+├── Robust Error Validation Strategy
+│   ├── try / except  # Catches ValueError letter typos on integer entries
+│   ├── conditional   # Boundary evaluation rules preventing negative values
+│   ├── .strip()      # String method sanitation removing edge blank spaces
+│   └── .upper()      # String standardizer resolving letter casing variations
+│
+└── Loop Execution Mechanics
+    ├── while True    # Persistent menu loop preventing premature crashes
+    └── dict.items()  # Key-value extraction scanner used for category reading
+```
 
 
 ## 🚀 Steps to Install & Run the Project
