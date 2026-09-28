@@ -3,6 +3,10 @@
 Wildlife Conservation & Threat Tracker
 </h1>
 
+![Python](https://img.shields.io/badge/Python-3.16%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)
+![License](https://img.shields.io/badge/License-MIT-2ea44f?style=for-the-badge)
+
 A modular, terminal-based Command Line Interface (CLI) application developed in Python to track endangered animal populations and active environmental threats across sanctuary sectors.
 
 ## 🚀 How to Run the Project
