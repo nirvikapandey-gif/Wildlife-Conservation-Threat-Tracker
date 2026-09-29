@@ -21,3 +21,14 @@
 - Owl: 7 count
 - Hummingbird: 18 count
 - Falcon: 5 count
+
+*** TOTAL NUMBER OF ANIMALS ***
+Total Monitored Individuals(Animals):- 239
+Total Unique Species Logged:- 18
+Total Active Threat Alerts:- 2
+----------------------------------------------
+*** RECENT ACTIVE THREATS ***
+[CRITICAL], Zone: Sector A, Hazard: Illegal Wire Snare Trap
+[MEDIUM], Zone: Sector C, Hazard: Broken Perimeter Fencing
+
+Report generated and verified successfully.
